@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:loginapp/homepage.dart';
+import 'package:chestX/homepage.dart';
 
 class Login extends StatefulWidget {
   Login({Key key, this.title}) : super(key: key);
@@ -40,11 +40,11 @@ class _LoginScreenState extends State<Login> {
     );
     final loginButon = Material(
       elevation: 5.0,
-      borderRadius: BorderRadius.circular(30.0),
+      borderRadius: BorderRadius.circular(20.0),
       //color: Color(0xff01A0C7),
       color : Colors.black87,
       child: MaterialButton(
-        minWidth: MediaQuery.of(context).size.width,
+        minWidth: MediaQuery.of(context).size.width/10.0,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyHomePage())),
         child: Text("Login",
@@ -55,37 +55,72 @@ class _LoginScreenState extends State<Login> {
     );
 
     return Scaffold(
-        //backgroundColor: Colors.black87,
+        backgroundColor: Colors.white,
         body : Padding(
         padding:
-            EdgeInsets.zero,//only(top: 60.0, bottom: 60.0, left: 120.0, right: 120.0),
+            EdgeInsets.zero,
             child: Row(
               children: <Widget>[
                     Expanded(
                       child:Container(
                       height:  MediaQuery.of(context).size.height,
-                      //width: MediaQuery.of(context).size.width/2,
                       color:Colors.black87,
                       child:Image(image:AssetImage('images/login.gif'))
-                      /*
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('images/login.gif'),
-                          fit: BoxFit.fill,
-                      ),
-                  //shape: BoxShape.circle,
-                  ),*/
                   )
                   ),
                    Padding(
                     padding: EdgeInsets.all(16.0),
-                  ),  
-                  //Text('Row Nesting 2'),
+                  ),
                   Expanded(
                       child : Column(
                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                          children:<Widget>[
-                         /*
+                           Container(
+                            height:60.0,
+                            width:60.0,
+                            child: Align(
+                              alignment: Alignment.topRight,
+                              child: Text('ChestX')
+                              /*FlutterLogo(
+                               size: 100,
+                              ),*/
+                            ),
+                            ),
+                           //Text('ChestX'),
+                           SizedBox(height: 65.0),
+                           SizedBox(
+                            height: 65.0,
+                            width:MediaQuery.of(context).size.width/3.0,
+                           child:emailField),
+                           //SizedBox(height: 10.0),
+                           SizedBox(
+                            height: 65.0,
+                            width:MediaQuery.of(context).size.width/3.0,
+                           child:passwordField),
+                           SizedBox(height: 4.0),
+                           loginButon,
+                           SizedBox(height: 15.0),
+                           Text(
+                            '@Powered By Friday',
+                            style: new TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 10.0
+                            )
+                            )
+                  ]
+                  )
+                  ),       
+                  Padding(
+                    padding: EdgeInsets.all(16.0),
+                  )
+                ]
+                )
+             
+            )
+    );
+  }
+}
+/*
                            TextField(
                         keyboardType: TextInputType.text,
                         style: TextStyle(
@@ -100,47 +135,4 @@ class _LoginScreenState extends State<Login> {
                        )
                     ),
                   */
-                  SizedBox(height: 55.0),
-                  emailField,
-                  SizedBox(height: 20.0),
-                  passwordField,
-                  SizedBox(height: 30.0),
-                  loginButon,
-                  SizedBox(height: 15.0)
-                  ]
-                  )
-                  ),       
-                  Padding(
-                    padding: EdgeInsets.all(16.0),
-                  )
-                 // SizedBox(height: 45.0),
-                  //emailField,
-                  //SizedBox(height: 25.0),
-                  //passwordField,
-                  //SizedBox(height: 35.0),
-                  //loginButon,
-                  //SizedBox(height: 15.0)
-                ]
-                    //child: Image.asset('images/login.gif')
-                )
-             
-            )
-    );
-  }
-}
-/*
-SizedBox(height: 45.0),
-                    emailField,
-                    SizedBox(height: 25.0),
-                    passwordField,
-                    SizedBox(
-                      height: 35.0,
-                    ),
-                    loginButon,
-                    SizedBox(
-                      height: 15.0,
-mainAxisAlignment: MainAxisAlignment.center,
-  children: [
-    Expanded(child: Center(child: TextButton(...))),
-    VerticalDivider(width: 1.0),                      
-*/
+
