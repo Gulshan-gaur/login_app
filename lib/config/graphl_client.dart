@@ -1,39 +1,29 @@
-import “package:flutter/material.dart”;
+import 'package:flutter/material.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:chestX/config/secure_storage.dart';
 
-import “package:graphql_flutter/graphql_flutter.dart”;
+SecureStorageService secureStorageService = SecureStorageService();
 
 class GraphQLConfiguration {
+  static HttpLink httpLink = HttpLink(
+    'http://localhost:3000/dev/graphql',
+  );
 
-static HttpLink httpLink = HttpLink(
+  static AuthLink authLink = AuthLink(
+    getToken: () async => 'Bearer $secureStorageService.getAccessToken()',
+  );
 
-uri: “https://examplegraphql.herokuapp.com/graphql”,
+  ValueNotifier<GraphQLClient> client = ValueNotifier(
+    GraphQLClient(
+      link: httpLink,
+      cache: GraphQLCache(store: InMemoryStore()),
+    ),
+  );
 
-);
-
-
-ValueNotifier<GraphQLClient> client = ValueNotifier(
-
-GraphQLClient(
-
-link: httpLink,
-
-cache: OptimisticCache(dataIdFromObject: typenameDataIdFromObject),
-
-),
-
-);
-
-
-GraphQLClient clientToQuery() {
-
-return GraphQLClient(
-
-cache: OptimisticCache(dataIdFromObject: typenameDataIdFromObject),
-
-link: httpLink,
-
-);
-
-}
-
+  GraphQLClient clientToQuery() {
+    return GraphQLClient(
+      cache: GraphQLCache(store: InMemoryStore()),
+      link: httpLink,
+    );
+  }
 }
