@@ -6,7 +6,7 @@ final genController =   TextEditingController();
 final ageController = TextEditingController();
 final posController = TextEditingController();
 
-TextStyle style = TextStyle(fontSize: 16.0, color: Colors.grey.shade800);
+TextStyle style = TextStyle(fontSize: 16.0, color: Colors.white);
 
 final nameField = TextField(
   controller: fnameController,
@@ -19,8 +19,11 @@ final nameField = TextField(
       fillColor: Colors.blue,
       labelText: "First Name",
       labelStyle: TextStyle(color: Colors.purple),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0),
-      borderSide: BorderSide(style: BorderStyle.solid))),
+      enabledBorder:OutlineInputBorder(borderRadius: BorderRadius.circular(20.0),
+        borderSide: BorderSide(color: Colors.white70,style: BorderStyle.solid)),
+      border:OutlineInputBorder(borderRadius: BorderRadius.circular(20.0),
+        borderSide: BorderSide(style: BorderStyle.solid))
+  ),
 );
 
 final lastnameField = TextField(
@@ -33,25 +36,33 @@ final lastnameField = TextField(
       contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
       labelText: "Last Name",
       labelStyle: TextStyle(color: Colors.purple),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+      enabledBorder:OutlineInputBorder(borderRadius: BorderRadius.circular(20.0),
+        borderSide: BorderSide(color: Colors.white70,style: BorderStyle.solid)),
+      border:OutlineInputBorder(borderRadius: BorderRadius.circular(20.0),
+        borderSide: BorderSide(style: BorderStyle.solid))
+  ),
 );
 
 final genderField = TextField(
   controller: genController,
   keyboardType: TextInputType.text,
   textAlign: TextAlign.left,
-  obscureText: true,
+  obscureText: false,
   style: style,
   decoration: InputDecoration(
       contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
       labelText: "Gender",
       labelStyle: TextStyle(color: Colors.purple),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+      enabledBorder:OutlineInputBorder(borderRadius: BorderRadius.circular(20.0),
+        borderSide: BorderSide(color: Colors.white70,style: BorderStyle.solid)),
+      border:OutlineInputBorder(borderRadius: BorderRadius.circular(20.0),
+        borderSide: BorderSide(style: BorderStyle.solid))
+  ),
 );
 
 final ageField = TextField(
   controller: ageController,
-  keyboardType: TextInputType.text,
+  keyboardType: TextInputType.number,
   textAlign: TextAlign.left,
   obscureText: false,
   style: style,
@@ -59,7 +70,11 @@ final ageField = TextField(
       contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
       labelText: "Age",
       labelStyle: TextStyle(color: Colors.purple),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+      enabledBorder:OutlineInputBorder(borderRadius: BorderRadius.circular(20.0),
+        borderSide: BorderSide(color: Colors.white70,style: BorderStyle.solid)),
+      border:OutlineInputBorder(borderRadius: BorderRadius.circular(20.0),
+        borderSide: BorderSide(style: BorderStyle.solid))
+  ),
 );
 
 final positionField = TextField(
@@ -72,5 +87,9 @@ final positionField = TextField(
       contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
       labelText: "PA/AP",
       labelStyle: TextStyle(color: Colors.purple),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
+      enabledBorder:OutlineInputBorder(borderRadius: BorderRadius.circular(20.0),
+        borderSide: BorderSide(color: Colors.white70,style: BorderStyle.solid)),
+      border:OutlineInputBorder(borderRadius: BorderRadius.circular(20.0),
+        borderSide: BorderSide(style: BorderStyle.solid))
+  ),
 );

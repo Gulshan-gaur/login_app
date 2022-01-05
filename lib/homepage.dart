@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:chestX/config/secure_storage.dart';
 
+
+final SecureStorageService secureStorageService = SecureStorageService();
 
 class MyHomePage extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -93,7 +97,10 @@ class MyHomePage extends StatelessWidget {
         )
         ),
       floatingActionButton: FloatingActionButton(
-        onPressed: ()=>print("Aalu"),
+        onPressed: () async{
+          final val = await secureStorageService.getAccessToken();
+          print(val);
+        },
         tooltip: 'Add',
         child: Icon(Icons.add),
       )
